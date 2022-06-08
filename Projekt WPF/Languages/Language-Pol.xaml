@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <system:String x:Key="StrParcels">Przesyłki</system:String>
+    <system:String x:Key="StrClients">Klienci</system:String>
+    <system:String x:Key="StrOptions">Opcje</system:String>
+    <system:String x:Key="StrBack">Powrót</system:String>
+    <system:String x:Key="StrRemove">Usuń</system:String>
+    <system:String x:Key="StrAdd">Dodaj</system:String>
+    <system:String x:Key="StrFirstName">Imię</system:String>
+    <system:String x:Key="StrSurname">Nazwisko</system:String>
+    <system:String x:Key="StrAdress">Adres</system:String>
+    <system:String x:Key="StrPhone">Telefon</system:String>
+    <system:String x:Key="StrEmail">Email</system:String>
+    <system:String x:Key="StrCompany">Firma</system:String>
+    <system:String x:Key="StrNip">NIP</system:String>
+    <system:String x:Key="StrLanguage">Język</system:String>
+    <system:String x:Key="StrTheme">Motyw</system:String>
+    <system:String x:Key="StrDark">Ciemny</system:String>
+    <system:String x:Key="StrBright">Jasny</system:String>
+    <system:String x:Key="StrWeight">Waga</system:String>
+    <system:String x:Key="StrSize">Rozmiar</system:String>
+    <system:String x:Key="StrStatus">Status</system:String>
+    <system:String x:Key="StrClient">Klient</system:String>
+    <system:String x:Key="StrPrint">Drukuj</system:String>
+    <system:String x:Key="StrCancel">Anuluj</system:String>
+    <system:String x:Key="StrId">Id</system:String>
+    
+</ResourceDictionary>
