@@ -20,18 +20,18 @@ namespace Projekt_WPF
     /// </summary>
     public partial class CreateClientWindow : Window
     {
-        Client newclient = new();
+        private readonly Client newclient = new();
         public CreateClientWindow()
         {
             InitializeComponent();
-            this.Resources.MergedDictionaries.Add(MainWindow.dictionary);
-            this.Resources.MergedDictionaries.Add(MainWindow.theme);
+            this.Resources.MergedDictionaries.Add(MainWindow.Dictionary);
+            this.Resources.MergedDictionaries.Add(MainWindow.Theme);
             this.DataContext = newclient;
         }
 
         private void BtnAddClicked(object sender, RoutedEventArgs e)
         {
-            Random random = new Random();
+            Random random = new();
             newclient.id = random.Next();
             newclient.myParcels = new();
             if(newclient.adress == null || newclient.surname == null||newclient.firstName == null || newclient.phone == 0 || newclient.email == null )

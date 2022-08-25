@@ -23,13 +23,13 @@ namespace Projekt_WPF
 
     public partial class CreateParcelWindow : Window
     {
-        Parcel NewParcel = new();
+        readonly Parcel NewParcel = new();
         
         public CreateParcelWindow()
         {
             InitializeComponent();
-            this.Resources.MergedDictionaries.Add(MainWindow.dictionary);
-            this.Resources.MergedDictionaries.Add(MainWindow.theme);
+            this.Resources.MergedDictionaries.Add(MainWindow.Dictionary);
+            this.Resources.MergedDictionaries.Add(MainWindow.Theme);
             SetSizes();
             SetStatuses(); 
             Collection<Client> allClients = ClientsWindow.AllClients;

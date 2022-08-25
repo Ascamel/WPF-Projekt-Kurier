@@ -30,20 +30,20 @@ namespace Projekt_WPF
 
             if(AllClients.Count == 0)
             {
-                AllClients.Add(new Client(1,"Adam", "Małysz", "Juchnowiec", 111222333, "am@gmail.com", true, 77788899,new List<Parcel>()));
-                AllClients.Add(new Client(2,"Tomasz", "Kowal", "Białystok", 000444555, "TK@gmail.com", false, null, new List<Parcel>()));
-                AllClients.Add(new Client(6, "Sebastian", "Kondraciuk", "Lewickie", 123456789, "sebastiankondraciuk1@gmail.com", false, null, new List<Parcel>()));
+                AllClients.Add(new Client(1,"Adam", "Małysz", "Warszawa", 111222333, "am@gmail.com", true, 77788899,new List<Parcel>()));
+                AllClients.Add(new Client(2,"Fryderyk", "Chopin", "Białystok", 000444555, "fChop@gmail.com", false, null, new List<Parcel>()));
+                AllClients.Add(new Client(3, "Juliusz", "Słowacki", "Kraków", 123456789, "Amickiewicz@gmail.com", false, null, new List<Parcel>()));
             }
 
-            this.Resources.MergedDictionaries.Add(MainWindow.dictionary);
-            this.Resources.MergedDictionaries.Add(MainWindow.theme);
+            this.Resources.MergedDictionaries.Add(MainWindow.Dictionary);
+            this.Resources.MergedDictionaries.Add(MainWindow.Theme);
             ListClients.ItemsSource = AllClients;
 
 
 
         }
 
-        private ListCollectionView View
+        private static ListCollectionView View
         {
             get
             {
@@ -96,8 +96,7 @@ namespace Projekt_WPF
         {
             View.Filter = delegate (object item)
             {
-                Client client = item as Client;
-                if (client != null)
+                if (item is Client client)
                 {
                     return (client.id.ToString() == FilterId.Text);
                 }

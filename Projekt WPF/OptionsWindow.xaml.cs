@@ -26,9 +26,9 @@ namespace Projekt_WPF
 
         private void LoadSettings()
         {
-            if(MainWindow.dictionary.Source !=null)
+            if(MainWindow.Dictionary.Source !=null)
             {
-                if (MainWindow.dictionary.Source == new Uri("\\Languages\\Language-Eng.xaml", UriKind.Relative))
+                if (MainWindow.Dictionary.Source == new Uri("\\Languages\\Language-Eng.xaml", UriKind.Relative))
                 {
                     RadEnglish.IsChecked = true;
                 }
@@ -38,9 +38,9 @@ namespace Projekt_WPF
                 }
             }
 
-            if (MainWindow.theme.Source !=null)
+            if (MainWindow.Theme.Source !=null)
             {
-                if (MainWindow.theme.Source == new Uri("\\Themes\\LightTheme.xaml", UriKind.Relative))
+                if (MainWindow.Theme.Source == new Uri("\\Themes\\LightTheme.xaml", UriKind.Relative))
                 {
                     RadBrightTheme.IsChecked = true;
                 }
@@ -55,28 +55,28 @@ namespace Projekt_WPF
          {
             if (RadBrightTheme.IsChecked == true)
             {
-                MainWindow.theme.Source = new Uri("\\Themes\\LightTheme.xaml", UriKind.Relative);
+                MainWindow.Theme.Source = new Uri("\\Themes\\LightTheme.xaml", UriKind.Relative);
             }
             else if (RadDarkTheme.IsChecked == true)
             {
-                MainWindow.theme.Source = new Uri("\\Themes\\DarkTheme.xaml", UriKind.Relative);
+                MainWindow.Theme.Source = new Uri("\\Themes\\DarkTheme.xaml", UriKind.Relative);
             }
 
-            this.Resources.MergedDictionaries.Add(MainWindow.theme);
+            this.Resources.MergedDictionaries.Add(MainWindow.Theme);
         }
 
         private void CheckLanguage()
         {
             if (RadEnglish.IsChecked == true)
             {
-                MainWindow.dictionary.Source = new Uri("\\Languages\\Language-Eng.xaml", UriKind.Relative);
+                MainWindow.Dictionary.Source = new Uri("\\Languages\\Language-Eng.xaml", UriKind.Relative);
             }
             else if (RadPolish.IsChecked == true)
             {
-                MainWindow.dictionary.Source = new Uri("\\Languages\\Language-Pol.xaml", UriKind.Relative);
+                MainWindow.Dictionary.Source = new Uri("\\Languages\\Language-Pol.xaml", UriKind.Relative);
             }
 
-            this.Resources.MergedDictionaries.Add(MainWindow.dictionary);
+            this.Resources.MergedDictionaries.Add(MainWindow.Dictionary);
         }
 
         private void BackClicked(object sender, RoutedEventArgs e)

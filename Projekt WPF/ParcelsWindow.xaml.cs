@@ -32,23 +32,19 @@ namespace Projekt_WPF
 
             if (AllParcels.Count==0&&ClientsWindow.AllClients.Count>1)
             {
-                AllParcels.Add(new Parcel(100, "Lipowa 12, Juchnowiec kościelny", 12, "s", "new", ClientsWindow.AllClients[0], ClientsWindow.AllClients[0].firstName+" "+ ClientsWindow.AllClients[0].surname));
-                AllParcels.Add(new Parcel(120, "Lewickie 2", 6, "xl", "delivered", ClientsWindow.AllClients[1], ClientsWindow.AllClients[1].firstName+" "+ ClientsWindow.AllClients[1].surname));
-                AllParcels.Add(new Parcel(400, "Lewickie 18", 5, "l", "new", ClientsWindow.AllClients[2], ClientsWindow.AllClients[2].firstName+" "+ ClientsWindow.AllClients[2].surname));
+                AllParcels.Add(new Parcel(100, "Jana Kilińskiego 1, 15-089 Białystok", 12, "s", "new", ClientsWindow.AllClients[0], ClientsWindow.AllClients[0].firstName+" "+ ClientsWindow.AllClients[0].surname));
+                AllParcels.Add(new Parcel(120, "Champ de Mars, 5 Av. Anatole France", 6, "xl", "delivered", ClientsWindow.AllClients[1], ClientsWindow.AllClients[1].firstName+" "+ ClientsWindow.AllClients[1].surname));
+                AllParcels.Add(new Parcel(400, "plac Defilad 1, 00-901 Warszawa", 5, "l", "new", ClientsWindow.AllClients[2], ClientsWindow.AllClients[2].firstName+" "+ ClientsWindow.AllClients[2].surname));
                 ClientsWindow.AllClients[0].myParcels.Add(AllParcels[0]);
                 ClientsWindow.AllClients[1].myParcels.Add(AllParcels[1]);
                 ClientsWindow.AllClients[2].myParcels.Add(AllParcels[2]);
             }
 
-            
-
             Collection<Client> allClients = ClientsWindow.AllClients;
             ComboBoxClients.ItemsSource = allClients;
 
-
-
-            this.Resources.MergedDictionaries.Add(MainWindow.dictionary);
-            this.Resources.MergedDictionaries.Add(MainWindow.theme);
+            this.Resources.MergedDictionaries.Add(MainWindow.Dictionary);
+            this.Resources.MergedDictionaries.Add(MainWindow.Theme);
             ListParcels.ItemsSource = AllParcels;
         }
         public void SetSizes()
@@ -71,7 +67,7 @@ namespace Projekt_WPF
         {
             this.Close();
         }
-        private ListCollectionView View
+        private static ListCollectionView View
         {
             get
             {
@@ -82,25 +78,22 @@ namespace Projekt_WPF
         private void TxtBoxAdressChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             //nizej z trasa od pb
-            // wbMaps.Navigate("https://www.google.pl/maps/dir/Politechnika+Bia%C5%82ostocka,+Wiejska,+Bia%C5%82ystok/"+allParcels[ListParcels.SelectedIndex].adress) ;
-
-            //jesli chcemy tylko miejsce
-            if(ListParcels.SelectedIndex>=0)
+            if (ListParcels.SelectedIndex>=0)
             {
-                wbMaps.Navigate("https://www.google.pl/maps/place/"+AllParcels[ListParcels.SelectedIndex].Adress);
+                wbMaps.Navigate("https://www.google.pl/maps/dir/Politechnika+Bia%C5%82ostocka,+Wiejska,+Bia%C5%82ystok/"+AllParcels[ListParcels.SelectedIndex].Adress);
             }
 
         }
 
         private void BtnAddClicked(object sender, RoutedEventArgs e)
         {
-            CreateParcelWindow createParcelWindow = new CreateParcelWindow();
+            CreateParcelWindow createParcelWindow = new();
             createParcelWindow.ShowDialog();
         }
 
         private void BtnPrintClicked(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDialog = new PrintDialog();
+            PrintDialog printDialog = new();
             if (printDialog.ShowDialog() == true)
             {
                 printDialog.PrintVisual(this, "Printing page");
@@ -112,8 +105,7 @@ namespace Projekt_WPF
 
             View.Filter = delegate (object item)
             {
-                Parcel parcel = item as Parcel;
-                if (parcel != null)
+                if (item is Parcel parcel)
                 {
                     return (parcel.Recipient.id.ToString() == FilterId.Text);
                 }

@@ -19,34 +19,37 @@ namespace Projekt_WPF
 
     public partial class MainWindow : Window
     {
-        public static ResourceDictionary dictionary = new ResourceDictionary();
-        public static ResourceDictionary theme = new ResourceDictionary();
+        private static ResourceDictionary dictionary = new();
+        private static ResourceDictionary theme = new();
+
+        public static ResourceDictionary Dictionary { get => dictionary; set => dictionary=value; }
+        public static ResourceDictionary Theme { get => theme; set => theme=value; }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            dictionary.Source = new Uri("\\Languages\\Language-Eng.xaml", UriKind.Relative);
-            theme.Source = new Uri("\\Themes\\LightTheme.xaml", UriKind.Relative);
-            this.Resources.MergedDictionaries.Add(dictionary);
-            this.Resources.MergedDictionaries.Add(theme);
+            Dictionary.Source = new Uri("\\Languages\\Language-Eng.xaml", UriKind.Relative);
+            Theme.Source = new Uri("\\Themes\\LightTheme.xaml", UriKind.Relative);
+            this.Resources.MergedDictionaries.Add(Dictionary);
+            this.Resources.MergedDictionaries.Add(Theme);
         }
 
         private void OptionsClicked(object sender, RoutedEventArgs e)
         {
-            OptionsWindow optionsWindow = new OptionsWindow();
+            OptionsWindow optionsWindow = new();
             optionsWindow.ShowDialog();
         }
 
         private void ParcelsClicked(object sender, RoutedEventArgs e)
         {
-            ParcelsWindow parcelsWindow = new ParcelsWindow();
+            ParcelsWindow parcelsWindow = new();
             parcelsWindow.ShowDialog();
         }
 
         private void ClientsClicked(object sender, RoutedEventArgs e)
         {
-            ClientsWindow clientsWindow = new ClientsWindow();
+            ClientsWindow clientsWindow = new();
             clientsWindow.ShowDialog();
         }
 
